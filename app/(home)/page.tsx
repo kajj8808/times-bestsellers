@@ -2,6 +2,7 @@ import { API_URL } from "@constants";
 import Link from "next/link";
 
 import styles from "../../styles/Home.module.css";
+import Loader from "@components/Loader";
 
 interface IResult {
   status: string;
@@ -19,7 +20,7 @@ interface IBestSeller {
   updated: string;
 }
 
-export async function getBestSellers() {
+async function getBestSellers() {
   const { results, status } = (await (
     await fetch(`${API_URL}/lists`)
   ).json()) as IResult;
@@ -32,8 +33,8 @@ export default async function HomePage() {
     <div className={styles.container}>
       <ul>
         {bestSellers.map((bestSeller) => (
-          <li key={bestSeller.display_name}>
-            <Link href={`/list/${bestSeller.list_name_encoded}`}>
+          <li key={bestSeller.list_name_encoded}>
+            <Link prefetch href={`/list/${bestSeller.list_name_encoded}`}>
               {bestSeller.display_name}
             </Link>
           </li>

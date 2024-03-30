@@ -1,0 +1,22 @@
+.Header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #111;
+}
+.Header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+.Header nav a {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+.Header nav a:hover {
+  border-bottom: 2px solid #111;
+}

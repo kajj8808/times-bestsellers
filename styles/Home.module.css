@@ -1,10 +1,20 @@
 .container ul {
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 .container ul li {
   width: fit-content;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(55, 48, 48);
+  background-color: transparent;
+  color: #111;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.container ul li:hover {
+  background-color: #111;
+  color: #fff;
 }
