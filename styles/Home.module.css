@@ -1,0 +1,10 @@
+.container ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.container ul li {
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid black;
+}
