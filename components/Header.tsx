@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <header className={styles.Header}>
       <nav>
-        <Link href={"/"}>Home</Link>
-        <Link href={"/about"}>About</Link>
+        <Link href={"/"}>HOME</Link>
+        <Link href={"/about"}>ABOUT</Link>
       </nav>
     </header>
   );

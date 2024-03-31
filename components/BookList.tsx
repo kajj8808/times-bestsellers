@@ -1,6 +1,7 @@
 import { API_URL } from "@constants";
 import Image from "next/image";
-
+import styles from "@styles/BookList.module.css";
+import Link from "next/link";
 interface IResult {
   status: string;
   copyright: string;
@@ -60,19 +61,28 @@ export default async function BookList({ id }: { id: string }) {
   const bookList = await getBookList(id);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>{bookList?.display_name}</h2>
 
-      {bookList?.books.map((book) => (
-        <div key={book.title}>
-          <Image
-            src={book.book_image}
-            width={book.book_image_width}
-            height={book.book_image_height}
-            alt={book.title}
-          />
-        </div>
-      ))}
+      <div className={styles.listBox}>
+        {bookList?.books.map((book) => (
+          <div key={book.title} className={styles.item}>
+            <Image
+              src={book.book_image}
+              width={book.book_image_width}
+              height={book.book_image_height}
+              alt={book.title}
+            />
+            <div className={styles.hiddenContent}>
+              <h3>{book.title}</h3>
+              <p>{book.author}</p>
+              <a href={book.amazon_product_url} target="_blank">
+                Buy Now
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
